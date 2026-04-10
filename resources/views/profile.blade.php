@@ -19,7 +19,7 @@
         <h1 class="text-2xl font-bold tracking-tight">Teuku Irvan</h1>
         <p class="text-slate-500 font-medium">Junior Software Engineer</p>
         <div class="mt-6 p-4 bg-slate-50 rounded-xl text-sm leading-relaxed">
-            Sedang fokus mendalami Laravel dan Cyber Security untuk masa depan IT Indonesia.
+            Sedang fokus mendalami Laravel dan Cyber Security untuk masa depan IT Indonesia..
         </div>
     </div>
 </body>
