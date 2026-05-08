@@ -1,5 +1,6 @@
 NIM : 24.62.0219
 NAMA : TEUKU IRVAN
+KELAS "BCIS"
 
 LINK LARAVEL CLOUD : https://eventamikom-0219-main-vw58sl.free.laravel.cloud/kontak
 
@@ -25,8 +26,11 @@ https://eventamikom-0219-main-vw58sl.free.laravel.cloud/event/1
 Checkout :
 https://eventamikom-0219-main-vw58sl.free.laravel.cloud/checkout
 
-Tugas 3 :
+
 https://eventamikom-0219-main-vw58sl.free.laravel.cloud/admin/categories
 
-TUGAS 4 SUDAH SELESAI (SEEDING DAN MIGRASI DATABASE UNTUK HASIL SCREENSHOT DIBAWAH)
+TUGAS 3 SUDAH SELESAI (SEEDING DAN MIGRASI DATABASE UNTUK HASIL SCREENSHOT DIBAWAH)
 https://imgur.com/a/BuKKGeG
+
+TUGAS 4 : https://eventamikom-0219-main-vw58sl.free.laravel.cloud/admin/events/create
+

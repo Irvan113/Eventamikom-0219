@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventsController as AdminEventsController; // 
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\EventController as EventAdminController;
 
 // --- User Routes ---
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -21,10 +22,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     
     Route::get('/events', [AdminEventsController::class, 'index'])->name('events'); 
     Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');
+        Route::resource('events', EventAdminController::class);
+
     Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');});
+    
+    Route::resource('events', EventAdminController::class);
 
 // --- Static Pages ---
-Route::get('/tentang', function () {
+Route::get('/', function () {
     return '<h1>Ini adalah Halaman Tentang Aplikasi Event Hub</h1>';
 });
 
