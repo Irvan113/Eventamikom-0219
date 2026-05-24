@@ -1,8 +1,7 @@
 @extends ('layout.app')
 
 @section('content')
-<!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+<section class="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
         <div class="flex-1 space-y-8">
             <span
                 class="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold uppercase tracking-wider">#1
@@ -52,9 +51,7 @@
         </div>
     </section>
     
- 
 
-    <!-- Events Grid -->
     <section id="events" class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex justify-between items-end mb-12">
             <div>
@@ -126,4 +123,43 @@
             </div>
         </div>
     </section>
-@endsection
+
+    <section class="max-w-7xl mx-auto px-6 py-20 bg-slate-50 rounded-[3rem] my-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold mb-4">Eksplorasi Kategori</h2>
+            <p class="text-slate-500 font-medium max-w-2xl mx-auto">Temukan event yang paling sesuai dengan minat dan bakatmu di AmikomEventHub.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            @forelse($categories as $category)
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl mx-auto flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">{{ $category->name }}</h3>
+                </div>
+            @empty
+                <div class="col-span-full text-center p-8 bg-white rounded-3xl border border-slate-100 text-slate-500 font-medium">Belum ada data kategori event.</div>
+            @endforelse
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 mb-10">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold mb-4">Partner & Sponsor</h2>
+            <p class="text-slate-500 font-medium max-w-2xl mx-auto">Platform AmikomEventHub didukung oleh berbagai komunitas dan mitra industri terpercaya.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
+            @forelse($partners as $partner)
+                <div class="group flex flex-col items-center">
+                    <div class="w-32 h-32 md:w-40 md:h-40 bg-white border border-slate-100 rounded-3xl p-6 flex items-center justify-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <img src="{{ asset('storage/' . $partner->logo_url) }}" alt="{{ $partner->name }}" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                    </div>
+                    <span class="mt-4 text-sm font-bold text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity">{{ $partner->name }}</span>
+                </div>
+            @empty
+                <div class="w-full text-center p-8 border-2 border-dashed border-slate-200 rounded-3xl text-slate-500 font-medium">Belum ada partner yang bergabung.</div>
+            @endforelse
+        </div>
+    </section>
+
+    @endsection
