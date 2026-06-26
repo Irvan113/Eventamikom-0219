@@ -1,20 +1,16 @@
 <?php
 
-
 namespace App\Models;
-
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class Category extends Model
+class Partner extends Model
 {
     protected $fillable = [
         'name',
-        'slug',
+        'type',
+        'website',
+        'status',
+        'logo_path',
     ];
-
-    public function events() {
-    return $this->hasMany(Event::class);
-}
 }

@@ -19,7 +19,7 @@
                     class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold text-lg shadow-xl shadow-indigo-200 hover:scale-105 transition-transform">
                     Mulai Jelajah
                 </a>
-                <a href="#"
+                <a href="#how-it-works"
                     class="px-8 py-4 border-2 border-slate-200 rounded-2xl font-bold text-lg hover:border-indigo-600 hover:text-indigo-600 transition">
                     Cara Pesan
                 </a>
@@ -62,7 +62,7 @@
                 <p class="text-slate-500 font-medium">Jangan sampai ketinggalan acara seru minggu ini!</p>
             </div>
             <div class="flex gap-2">
-                <button class="p-3 border rounded-xl hover:bg-white hover:shadow-md transition">Semua Kategori</button>
+                <a href="{{ route('catalog') }}" class="p-3 border rounded-xl hover:bg-white hover:shadow-md transition">Semua Kategori</a>
             </div>
         </div>
 
@@ -123,6 +123,46 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-10 md:p-12">
+            <div class="max-w-2xl mb-10">
+                <h2 class="text-3xl font-extrabold mb-2">Cara Pesan</h2>
+                <p class="text-slate-500 font-medium">Tiga langkah sederhana untuk memesan tiket event.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <p class="text-sm font-black uppercase tracking-widest text-indigo-600 mb-3">01</p>
+                    <h3 class="text-xl font-bold mb-2">Pilih Event</h3>
+                    <p class="text-slate-500">Buka detail event yang kamu mau, lalu lihat informasi lengkapnya.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <p class="text-sm font-black uppercase tracking-widest text-indigo-600 mb-3">02</p>
+                    <h3 class="text-xl font-bold mb-2">Isi Data</h3>
+                    <p class="text-slate-500">Masukkan nama, email, dan WhatsApp agar tiket terkirim dengan benar.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <p class="text-sm font-black uppercase tracking-widest text-indigo-600 mb-3">03</p>
+                    <h3 class="text-xl font-bold mb-2">Bayar Aman</h3>
+                    <p class="text-slate-500">Lanjutkan ke pembayaran dan selesaikan transaksi lewat Midtrans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="max-w-7xl mx-auto px-6 pb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="bg-indigo-600 text-white rounded-[2.5rem] p-10 shadow-xl shadow-indigo-100">
+                <h2 class="text-3xl font-extrabold mb-4">Platform event untuk kampus dan komunitas.</h2>
+                <p class="text-indigo-100 leading-relaxed">AmikomEventHub membantu pengguna menemukan event, membeli tiket, dan mengelola pengalaman hadir dengan lebih cepat dan aman.</p>
+            </div>
+            <div class="bg-white rounded-[2.5rem] border border-slate-100 p-10 shadow-sm">
+                <h3 class="text-2xl font-bold mb-4">Butuh tiket sekarang?</h3>
+                <p class="text-slate-500 mb-6">Langsung lihat event terdekat dan buka detailnya untuk melanjutkan pemesanan.</p>
+                <a href="#events" class="inline-block px-6 py-3 bg-slate-900 text-white rounded-2xl font-bold hover:bg-indigo-600 transition">Lihat Event</a>
             </div>
         </div>
     </section>

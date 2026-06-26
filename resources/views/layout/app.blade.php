@@ -28,15 +28,17 @@
     <nav
         class="glass sticky top-8 z-40 mx-4 mt-4 px-6 py-4 rounded-2xl border border-white/20 shadow-lg flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div
-                class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                AH</div>
-            <span class="text-xl font-bold tracking-tight">AmikomEventHub</span>
+            <a href="{{ route('home') }}" class="flex items-center gap-2">
+                <div
+                    class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                    AH</div>
+                <span class="text-xl font-bold tracking-tight">AmikomEventHub</span>
+            </a>
         </div>
         <div class="hidden md:flex gap-8 font-medium">
-            <a href="#" class="text-indigo-600">Jelajahi</a>
-            <a href="#" class="hover:text-indigo-600 transition">Kategori</a>
-            <a href="#" class="hover:text-indigo-600 transition">Tentang Kami</a>
+            <a href="{{ route('home') }}#events" class="text-indigo-600">Jelajahi</a>
+            <a href="{{ route('catalog') }}" class="hover:text-indigo-600 transition">Kategori</a>
+            <a href="{{ route('home') }}#about" class="hover:text-indigo-600 transition">Tentang Kami</a>
         </div>
         <!-- <div class="flex gap-3">
             <button class="px-5 py-2.5 rounded-xl font-semibold hover:bg-slate-200 transition">Login</button>
@@ -63,9 +65,9 @@
             <div>
                 <h4 class="text-white font-bold mb-6">Navigasi</h4>
                 <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#" class="hover:text-white transition">Semua Event</a></li>
-                    <li><a href="#" class="hover:text-white transition">Cara Bayar</a></li>
+                    <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
+                    <li><a href="{{ route('home') }}#events" class="hover:text-white transition">Semua Event</a></li>
+                    <li><a href="{{ route('home') }}#how-it-works" class="hover:text-white transition">Cara Bayar</a></li>
                 </ul>
             </div>
             <div>

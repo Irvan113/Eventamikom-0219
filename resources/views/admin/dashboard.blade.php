@@ -65,6 +65,24 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <a href="{{ route('admin.categories.index') }}" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition block">
+                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Master Data</p>
+                <h3 class="text-2xl font-black mb-2">Kelola Kategori</h3>
+                <p class="text-slate-500">Atur kategori event yang dipakai saat membuat event baru.</p>
+            </a>
+            <a href="{{ route('admin.transaction') }}" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition block">
+                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Penjualan</p>
+                <h3 class="text-2xl font-black mb-2">Kelola Transaksi</h3>
+                <p class="text-slate-500">Pantau transaksi terbaru, status pembayaran, dan total tagihan.</p>
+            </a>
+            <a href="{{ route('admin.partners.index') }}" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition block">
+                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Kemitraan</p>
+                <h3 class="text-2xl font-black mb-2">Kelola Partner</h3>
+                <p class="text-slate-500">Daftar partner sponsor atau kolaborator event bisa dikelola dari sini.</p>
+            </a>
+        </div>
+
         <!-- Latest Sales Table -->
         <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
             <div class="p-8 border-b flex justify-between items-center">

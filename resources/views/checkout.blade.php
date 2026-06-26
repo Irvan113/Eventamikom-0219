@@ -4,7 +4,7 @@
 
     <main class="max-w-3xl mx-auto px-6 py-20">
         <div class="mb-12">
-            <a href="event-detail.html" class="text-indigo-600 font-bold flex items-center gap-2 mb-6">
+            <a href="{{ route('event.show', 1) }}" class="text-indigo-600 font-bold flex items-center gap-2 mb-6">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -74,6 +74,7 @@
                     </div>
 
                     <button type="button" onclick="showMidtrans()"
+                    
                         class="w-full py-5 bg-indigo-600 text-white rounded-2xl font-black text-xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 active:scale-95 transition-all">
                         Bayar Sekarang
                     </button>
