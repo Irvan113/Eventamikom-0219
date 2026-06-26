@@ -49,6 +49,7 @@
 
  
 
+ @if(config('midtrans.client_key'))
  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script> 
 
  <script type="text/javascript"> 
@@ -98,6 +99,11 @@
      } 
 
  </script> 
+ @else
+ <div class="mt-8 p-4 bg-red-100 text-red-700 rounded-xl font-bold">
+     MIDTRANS_CLIENT_KEY belum diatur di Laravel Cloud.
+ </div>
+ @endif
 
  
 

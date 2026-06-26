@@ -48,11 +48,16 @@ class CheckoutController extends Controller
             'status'         => 'pending', 
         ]);
 
-        // Konfigurasi Kredensial Environment Midtrans 
+        // Konfigurasi Kredensial Midtrans dari config, bukan env langsung.
+        $serverKey = config('midtrans.server_key');
 
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        if (blank($serverKey)) {
+            return back()->with('error', 'MIDTRANS_SERVER_KEY belum diatur di Laravel Cloud.');
+        }
 
-        \Midtrans\Config::$isProduction = false; // Mode Sandbox! 
+        \Midtrans\Config::$serverKey = $serverKey;
+
+        \Midtrans\Config::$isProduction = (bool) config('midtrans.is_production', false); // Mode sandbox jika false
 
         \Midtrans\Config::$isSanitized = true;
 
@@ -116,7 +121,7 @@ class CheckoutController extends Controller
         return redirect('/');
     } // <-- Kurung penutup method store dipindahkan ke sini
 
-    public function payment($order_id)
+    public function payment($orderId)
     {
 
         // Mengambil daftar kategori untuk keperluan menu footer 
@@ -124,13 +129,13 @@ class CheckoutController extends Controller
 
 
 
-        $transaction = Transaction::with('event')->where('order_id', $order_id)->firstOrFail();
+        $transaction = Transaction::with('event')->whereRaw('order_id = ?', [$orderId])->firstOrFail();
 
         return view('checkout.payment', compact('transaction', 'categories'));
 
     }
 
-    public function success($order_id) 
+    public function success($orderId) 
 
     { 
 
@@ -140,27 +145,33 @@ class CheckoutController extends Controller
 
  
 
-         $transaction = Transaction::where('order_id', $order_id)->firstOrFail(); 
+         $transaction = Transaction::whereRaw('order_id = ?', [$orderId])->firstOrFail(); 
 
           
 
          // Validasi status pembayaran asli dari Midtrans (Mencegah manipulasi URL) 
 
-         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY'); 
+         $serverKey = config('midtrans.server_key');
 
-         \Midtrans\Config::$isProduction = false; 
+         if (blank($serverKey)) {
+             return redirect()->route('home')->with('error', 'MIDTRANS_SERVER_KEY belum diatur di Laravel Cloud.');
+         }
+
+         \Midtrans\Config::$serverKey = $serverKey; 
+
+         \Midtrans\Config::$isProduction = (bool) config('midtrans.is_production', false); 
 
           
 
          try { 
 
-             $midtransStatus = \Midtrans\Transaction::status($order_id); 
+             $midtransStatus = \Midtrans\Transaction::status($orderId); 
 
               
 
              // Hanya ubah status menjadi sukses jika Midtrans mengonfirmasi pembayaran lunas 
 
-             if (in_array($midtransStatus->transaction_status, ['capture', 'settlement'])) { 
+             if (in_array(data_get($midtransStatus, 'transaction_status'), ['capture', 'settlement'])) { 
 
                  $transaction->update(['status' => 'success']); 
 

@@ -34,3 +34,6 @@ https://imgur.com/a/BuKKGeG
 
 TUGAS 4 : https://eventamikom-0219-main-vw58sl.free.laravel.cloud/admin/events/create
 
+
+Pertemuan 11 : 
+
